@@ -1,0 +1,61 @@
+<h1>Prospects</h1>
+<div class="mat-elevation-z8 bg-light" style="border: 1px solid lightgray;">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 8px;">
+        <!-- Date Column -->
+        <ng-container matColumnDef="emprunteur_principal">
+            <th mat-header-cell *matHeaderCellDef>Emprunteur pricipal </th>
+            <td mat-cell *matCellDef="let element" (click)="this.open_folder()"> {{element.ep}}</td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="nature_projet">
+            <th mat-header-cell *matHeaderCellDef> Nature du projet</th>
+            <td mat-cell *matCellDef="let element" (click)="this.open_folder()"> {{element.nature_projet}}</td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="date_creation">
+            <th mat-header-cell *matHeaderCellDef>Date de creation</th>
+            <td mat-cell *matCellDef="let element" (click)="this.open_folder()"> {{element.date_creation}}</td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="porteur">
+            <th mat-header-cell *matHeaderCellDef>Porteur</th>
+            <td mat-cell *matCellDef="let element" (click)="this.open_folder()"> {{element.porteur}}</td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element" (click)="this.open_folder()"> {{element.email}}</td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="proprietaire">
+            <th mat-header-cell *matHeaderCellDef> Proprietaire </th>
+            <td mat-cell *matCellDef="let element" (click)="this.open_folder()"> {{element.proprietaire}}</td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" class="text-secondary">
+                <div class="d-flex flex-row actions" style="color: #263238 !important;">
+                    <button mat-icon-button matTooltip="voir apercu" matTooltipPosition="below"><i class="fas fa-eye"></i></button>
+                    <button mat-icon-button matTooltip="editer" matTooltipPosition="below"><i class="fas fa-pen"></i></button>
+                    <button mat-icon-button matTooltip="supprimer" matTooltipPosition="below"><i class="fas fa-trash"></i></button>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="bg-light"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+        <!-- Row shown when there is no matching data. -->
+        <!-- <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell w-100" colspan="6">Aucun parametre trouvé avec "{{input.value}}"</td>
+        </tr> -->
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons  aria-label="Select page of periodic elements"></mat-paginator>
+</div>
